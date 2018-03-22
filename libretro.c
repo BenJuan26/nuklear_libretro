@@ -21,8 +21,8 @@
 #include <time.h>
 #endif
 
-#define WINDOW_WIDTH 1280
-#define WINDOW_HEIGHT 720
+#define WINDOW_WIDTH 1920
+#define WINDOW_HEIGHT 1080
 
 #include "libretro.h"
 
@@ -397,9 +397,8 @@ void retro_run(void)
     nk_input_end(&rawfb->ctx);
 
     /* GUI */
-    if (nk_begin(&rawfb->ctx, "Demo", nk_rect(50, 50, 200, 200),
-        NK_WINDOW_BORDER|NK_WINDOW_MOVABLE|
-        NK_WINDOW_CLOSABLE|NK_WINDOW_MINIMIZABLE|NK_WINDOW_TITLE)) {
+    if (nk_begin(&rawfb->ctx, "Demo", nk_rect(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT),
+        NK_WINDOW_TITLE)) {
         enum {EASY, HARD};
         static int op = EASY;
         static int property = 20;
